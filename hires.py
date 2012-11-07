@@ -63,6 +63,11 @@ class SampleSet:
         self.x      = x      # array - delta x from center (float, degrees)
         self.y      = y      # array - delta y from center (float, degrees)
         self.flux   = flux   # array - flux (float)
+        if (FLUX_MIN):
+            self.neg_inx = self.flux < 0.0
+            self.flux[self.neg_inx] = FLUX_MIN
+        else:
+            self.neg_inx = None
         self.det_id = det_id # array or constant - detector ID (string)
         self.angle  = angle  # array or constant - scan angle (float, degrees east of north)
                              # - use None for hires to estimated from dx,dy
@@ -224,6 +229,9 @@ BEAM_SPIKE_HEIGHT = 10.0
 BOOST_MAX_ITER = 0
 FLUX_UNITS = '??'
 LOG_FILE_HANDLE = None
+DIAG_PRODUCT = None
+FLUX_OFFSET = 0.0
+FLUX_MIN = None
 
 #====================================================================
 def get_paramaters(args):
@@ -255,10 +263,12 @@ def get_paramaters(args):
     global FLUX_UNITS # for FITS keyword BUNIT in flux images
     global FITS_KEYWORDS # FITS keywords to be added to output files
     global LOG_FILE_HANDLE # log file
+    global FLUX_MIN # minimum flux
     global BAND # string for band or channel
     global DRF_EXTN # FITS extension for response function images
     global DIAG_PRODUCT # path to SPIRE Destriper diagnostic product (input)
-
+    global FLUX_OFFSET # offset to add to SPIRE Level 1 timelines
+    
     INFILE_PREFIX  = args[1]
     OUTFILE_PREFIX = args[2]
     param_files    = ( args[3:] )
@@ -297,6 +307,8 @@ def get_paramaters(args):
             elif name == 'LOG_FILENAME': log_filename = val
             elif name == 'BAND': BAND = val
             elif name == 'DRF_EXTN': DRF_EXTN = int(val)
+            elif name == 'FLUX_MIN': FLUX_MIN = float(val)
+            elif name == 'FLUX_OFFSET': FLUX_OFFSET = float(val)
             elif name == 'DIAG_PRODUCT': DIAG_PRODUCT = val
             elif name == 'ITER_MAX': ITER_MAX = int(val)
             elif name == 'ITER_LIST':
