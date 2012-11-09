@@ -103,7 +103,8 @@ def read_all_Spire_tables():
         # dec = decHduList[1].data.field(det)[::17]
         # sig = signalHduList[1].data.field(det)[::17]
         # mask = maskHduList[1].data.field(det)[::17]
-        inx = numpy.all([mask <= 1024,mask != 256],axis=0)
+        #inx = numpy.all([mask <= 1024,mask != 256],axis=0)
+        inx = numpy.all([(mask & 64401) == 0])
         hires.log(3, 'Generating samples for detector %s',det)
         x, y = projection.np_lonlat2xy(ra[inx], dec[inx])
         # negate x because CDELT1 is negative
