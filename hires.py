@@ -228,6 +228,7 @@ FLUX_UNITS = '??'
 LOG_FILE_HANDLE = None
 DIAG_PRODUCT = None
 FLUX_OFFSET = 0.0
+GLOBAL_MIN = 1.e99
 
 #====================================================================
 def get_paramaters(args):

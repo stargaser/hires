@@ -55,17 +55,17 @@ def read_all_Spire_files():
             dec = decHdu.data.field(det)
             sig = signalHdu.data.field(det) - a0 + hires.FLUX_OFFSET
             mask = maskHdu.data.field(det)
-            inx = numpy.all([mask <= 1024,mask != 256],axis=0)
+            inx = numpy.all([(mask & 64401) == 0],axis=0)
             #hires.log(3, 'Generating samples for detector %s',det)
             x, y = projection.np_lonlat2xy(ra[inx], dec[inx])
             # negate x because CDELT1 is negative
             # angle = 0.0 to ignore it
-            ss = hires.SampleSet(-x, y, sig[inx], '1', 0.0)
-            # ss = hires.SampleSet(-x, y, sig[inx], 1, 0.0)
-            # if (i%3333 == 0):
-            #   hires.log(3, 'Created %dth sample for detector %s, x=%f, y=%f, ra=%f, dec=%f',\
-            #           i,det,x[i], y[i], ra[inx][i],dec[inx][i]) 
-            samples.append(ss)
+            if (len(sig[inx]) > 0):
+                ss = hires.SampleSet(-x, y, sig[inx], '1', 0.0)
+                thismin = numpy.min(sig[inx],axis=-1)
+                if thismin < hires.GLOBAL_MIN:
+                    hires.GLOBAL_MIN = thismin
+                samples.append(ss)
         scan += 1
     return samples
 
@@ -87,7 +87,6 @@ def read_all_Spire_tables():
     maskHduList = pyfits.open('IN/m33_maskTable2.fits')
     
     samples = []
-    offset = 0.03
     
     crval1 = hires.get_FITS_keyword('CRVAL1')
     crval2 = hires.get_FITS_keyword('CRVAL2')
