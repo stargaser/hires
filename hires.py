@@ -11,7 +11,10 @@ VERSION = 'v1_11'
 #====================================================================
 import sys, os, exceptions, glob, time, logging
 import numpy as np
-import pyfits
+try:
+    import astropy.io.fits as pyfits
+except ImportError:
+    import pyfits
 from math import radians, degrees, cos, sin, atan2, sqrt, pow
 import itertools as iter
 

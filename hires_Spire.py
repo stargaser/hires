@@ -2,7 +2,10 @@
 
 import hires as hires
 
-import pyfits
+try:
+    import astropy.io.fits as pyfits
+except ImportError:
+    import pyfits
 import numpy
 import glob
 
