@@ -1,0 +1,21 @@
+hires
+=====
+
+Python version of the HiRes Maximum Correlation Method algorithm.
+
+Licensed under a 3-clause BSD style license - see LICENSE.txt
+
+HiRes is a superresolution method, published by H.H. Aumann, J.W. Fowler,
+and M. Melnyk, 1990, The Astronomical Journal, Volume 99, Number 5, with
+title "A Maximum Correlation Method for Image Construction of IRAS
+Survey Data".
+
+The algorithm has been in use at the Infrared Processing and Analysis Center
+(IPAC) at Caltech for many years, for enhancing the resolution of IRAS data.
+The method was developed to handle variable beam profiles.
+In the limiting case of a constant beam response, the algorithm performs
+a Lucy-Richardson deconvolution in the image domain.
+
+The Python version was coded by Robert Narron at IPAC to work on Planck
+time-ordered data. Extension to SPIRE timeline data was made by Robert
+Narron and David Shupe.
