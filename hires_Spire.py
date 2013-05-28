@@ -1,4 +1,11 @@
-# This  is SPIRE-specific code for HIRES
+# Licensed under a 3-clause BSD style license - see LICENSE.txt
+""" 
+SPIRE-specific code for HiRes.
+
+Copyright (c) 2012-2013, California Institute of Technology
+
+Developer: David Shupe
+"""
 
 import hires as hires
 

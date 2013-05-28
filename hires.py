@@ -1,7 +1,16 @@
-# hires" python program to produce high resolution images
-# creates image using "maximum correlation method" (smoothest image that is
-# consistent with the input data and the detector response functions)
-# ==> Must override the "read_one_IN_file" method for reading input data files
+# Licensed under a 3-clause BSD style license - see LICENSE.txt
+"""
+hires python program to produce high resolution images
+creates image using "maximum correlation method" (smoothest image that is
+consistent with the input data and the detector response functions)
+
+Copyright (c) 2012-2013, California Institute of Technology
+
+Original developer: Robert Narron, based on Fortran HiRes code
+Modifications: David Shupe
+
+==> Must override the "read_one_IN_file" method for reading input data files
+"""
 
 PROGRAM = 'HIRES'
 VERSION = 'v1_11'
