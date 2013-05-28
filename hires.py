@@ -364,6 +364,7 @@ def print_paramaters():
     log(LOG_info, '  INFILE_PREFIX %s', INFILE_PREFIX)
     log(LOG_info, '  STARTING_IMAGE %s', STARTING_IMAGE)
     log(LOG_info, '  MIN_SAMPLE_FLUX %10.6g', MIN_SAMPLE_FLUX)
+    log(LOG_info, '  FLUX_OFFSET %10.6g', FLUX_OFFSET)
 
     log(LOG_info, '\nDRF (detector response files) to use:')
     log(LOG_info, '  DRF_PREFIX %s', DRF_PREFIX)
