@@ -1,0 +1,30 @@
+# Target . . .
+KWD OBJECT NGC 3221
+CRVAL1 155.5848345
+CRVAL2 21.56913318
+CTYPE1  RA---TAN Tangent plane projection
+CTYPE2  DEC--TAN
+
+# Processing . . .
+# OUTFILE_TYPES flux cov cfv beam padded
+OUTFILE_TYPES flux cov cfv beam
+ARCSEC_PER_PIX 3.0
+SIZE_NPIX 80 80
+
+#DIAG_PRODUCT /Users/shupe/data/mapmaker/SPIRE/SPIRE_RESULTS/Destriper/case4/case4_PLW_diagnP0.fits
+
+MIN_SAMPLE_FLUX 1.0e-200  # force fluxes to be positive
+FLUX_OFFSET -0.4
+
+# STARTING_IMAGE OUT/m33_857_flux_20_padded.fits
+
+ITER_MAX 20
+ITER_LIST 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 20 40 60 80
+
+# Footprint Precision . . .
+FOOTPRINTS_PER_PIX 3
+# ANGLE_TOLERANCE 360.0
+ANGLE_TOLERANCE 2.5
+
+
+BOOST_CORRECTION 5 SQUARED

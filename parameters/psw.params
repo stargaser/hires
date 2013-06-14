@@ -1,0 +1,5 @@
+KWD WAVELEN 250 um
+KWD INSTRUME SPIRE Photometer
+DRF_PREFIX /Users/shupe/Analysis/hires/mapmaker/params/psw_beam_1arcsec_cutout.fits
+BAND PSW
+DRF_EXTN 1

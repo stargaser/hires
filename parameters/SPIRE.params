@@ -1,0 +1,3 @@
+KWD TELESCOP Herschel
+ANGLE_TOLERANCE 1.5 # (degrees) use same footprint if angle changes less than this
+#ANGLE_TOLERANCE 360.0 # angle is irrelavent because gaussian is radially symetric

@@ -1,0 +1,30 @@
+# Target . . .
+KWD OBJECT HIGAL L30 FIELD
+CRVAL1 2.8134090850000E+02
+CRVAL2 -2.6445228000000E+00
+CTYPE1  RA---TAN Tangent plane projection
+CTYPE2  DEC--TAN
+
+# Processing . . .
+# OUTFILE_TYPES flux cov cfv beam padded
+OUTFILE_TYPES flux cov cfv
+ARCSEC_PER_PIX 14.0
+SIZE_NPIX 519 519
+
+#DIAG_PRODUCT /Users/shupe/data/mapmaker/SPIRE/SPIRE_RESULTS/Destriper/case4/case4_PLW_diagnP0.fits
+
+MIN_SAMPLE_FLUX 1.0e-200  # force fluxes to be positive
+FLUX_OFFSET 9.3
+
+# STARTING_IMAGE OUT/m33_857_flux_20_padded.fits
+
+ITER_MAX 20
+ITER_LIST 1 2 3 4 5 10 15 20 40 60 80
+
+# Footprint Precision . . .
+FOOTPRINTS_PER_PIX 7
+# ANGLE_TOLERANCE 360.0
+ANGLE_TOLERANCE 2.5
+
+
+BOOST_CORRECTION 5 SQUARED
